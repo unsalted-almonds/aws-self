@@ -1,4 +1,4 @@
-package helloWorld.HelloWorldWorkflowAsync;
+package helloWorld.HelloWorldWorkflowDistributed;
 
 import com.amazonaws.services.simpleworkflow.flow.annotations.Activities;
 import com.amazonaws.services.simpleworkflow.flow.annotations.ActivityRegistrationOptions;

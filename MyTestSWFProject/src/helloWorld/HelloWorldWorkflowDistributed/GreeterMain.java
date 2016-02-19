@@ -1,4 +1,4 @@
-package helloWorld.HelloWorldWorkflowAsync;
+package helloWorld.HelloWorldWorkflowDistributed;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
@@ -27,7 +27,7 @@ public class GreeterMain {
      String domain = "helloWorldWalkthrough";
 
      GreeterWorkflowClientExternalFactory factory = new GreeterWorkflowClientExternalFactoryImpl(service, domain);
-     GreeterWorkflowClientExternal greeter = factory.getClient("async1");
+     GreeterWorkflowClientExternal greeter = factory.getClient("async22");
      greeter.greet();
    }
 }

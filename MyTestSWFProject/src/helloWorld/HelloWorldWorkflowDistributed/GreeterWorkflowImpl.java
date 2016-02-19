@@ -1,4 +1,4 @@
-package helloWorld.HelloWorldWorkflowAsync;
+package helloWorld.HelloWorldWorkflowDistributed;
 
 import com.amazonaws.services.simpleworkflow.flow.annotations.Asynchronous;
 import com.amazonaws.services.simpleworkflow.flow.core.Promise;

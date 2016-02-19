@@ -13,6 +13,6 @@ public interface GreeterWorkflow {
 	 * 
 	 * 2.It specifies the workflow's version number
 	 * */
-   @Execute(version = "2.0")
+   @Execute(version = "2.2")
    public void greet();
 }

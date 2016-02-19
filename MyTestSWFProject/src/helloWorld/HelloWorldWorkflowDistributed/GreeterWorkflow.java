@@ -1,4 +1,4 @@
-package helloWorld.HelloWorldWorkflow;
+package helloWorld.HelloWorldWorkflowDistributed;
 
 import com.amazonaws.services.simpleworkflow.flow.annotations.Execute;
 import com.amazonaws.services.simpleworkflow.flow.annotations.Workflow;
@@ -13,6 +13,6 @@ public interface GreeterWorkflow {
 	 * 
 	 * 2.It specifies the workflow's version number
 	 * */
-   @Execute(version = "1.1")
+   @Execute(version = "2.2")
    public void greet();
 }
