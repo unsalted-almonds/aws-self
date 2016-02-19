@@ -1,4 +1,4 @@
-package helloWorld.HelloWorldWorkflow;
+package helloWorld.HelloWorldWorkflowAsync;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
@@ -26,7 +26,7 @@ public class GreeterWorker  {
      service.setEndpoint("https://swf.us-west-2.amazonaws.com");
 
      String domain = "helloWorldWalkthrough";
-     String taskListToPoll = "HelloWorldList";
+     String taskListToPoll = "HelloWorldAsyncList";
 
      //the following worker objects does the registration 
      //so all those Impl are only implementations, they are not workers yet!!
