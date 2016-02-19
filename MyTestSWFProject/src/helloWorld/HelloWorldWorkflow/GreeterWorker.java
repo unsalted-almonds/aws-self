@@ -5,9 +5,10 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.flow.ActivityWorker;
+import com.amazonaws.services.simpleworkflow.flow.WorkflowWorker;
 
-public class GreeterMain {
-
+public class GreeterWorker  {
    public static void main(String[] args) throws Exception {
      ClientConfiguration config = new ClientConfiguration().withSocketTimeout(70*1000);
 
@@ -21,9 +22,17 @@ public class GreeterMain {
      service.setEndpoint("https://swf.us-west-2.amazonaws.com");
 
      String domain = "helloWorldWalkthrough";
+     String taskListToPoll = "HelloWorldList";
 
-     GreeterWorkflowClientExternalFactory factory = new GreeterWorkflowClientExternalFactoryImpl(service, domain);
-     GreeterWorkflowClientExternal greeter = factory.getClient("someID");
-     greeter.greet();
+     //the following worker objects does the registration 
+     //so all those Impl are only implementations, they are not workers yet!!
+     
+     ActivityWorker aw = new ActivityWorker(service, domain, taskListToPoll);
+     aw.addActivitiesImplementation(new GreeterActivitiesImpl());
+     aw.start();
+
+     WorkflowWorker wfw = new WorkflowWorker(service, domain, taskListToPoll);
+     wfw.addWorkflowImplementationType(GreeterWorkflowImpl.class);
+     wfw.start();
    }
 }
